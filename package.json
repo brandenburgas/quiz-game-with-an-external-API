@@ -2,7 +2,7 @@
   "name": "quiz-app",
   "version": "1.0.0",
   "description": "Quiz app with external API for question generation",
-  "default": "index.js",
+  "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist --no-scope-hoist"
