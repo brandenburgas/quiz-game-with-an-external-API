@@ -14,7 +14,11 @@ const controlTriviaDataLoad = async function () {
 const controlQuestion = function () {
   model.generateQuestion();
   View.renderQuestion(model.state.questionObj);
-  View.addHandlerNext(controlQuestion, model.state.questionObj);
+  View.addHandlerNext(
+    controlQuestion,
+    model.state.questionObj,
+    model.state.index
+  );
 };
 
 const init = function () {

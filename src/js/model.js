@@ -35,9 +35,11 @@ export const loadQuizQuestions = async function (query) {
 };
 
 export const generateQuestion = function () {
-  state.questionObj = createQuestionObject(state.index);
-  // console.log(state.questionObj);
-  state.index++;
+  const numQuestions = state.settings.amount.split("=")[1];
+  if (+numQuestions === state.index) {
+    return;
+  } else {
+    state.questionObj = createQuestionObject(state.index);
+    state.index++;
+  }
 };
-
-//+state.settings.amount.split("=")[1]
