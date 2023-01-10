@@ -85,7 +85,11 @@ h1 {
     hsl(55deg 100% 50%) 100%
   );
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+}
+
+.form_container {
+  width: 1000px;
 }
 
 .form-control {
