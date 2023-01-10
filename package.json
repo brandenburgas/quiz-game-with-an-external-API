@@ -1,0 +1,27 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "Quiz app with external API for question generation",
+  "default": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist --no-scope-hoist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandenburgas/quiz-game-with-an-external-API.git"
+  },
+  "author": "Bernardas Laucius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandenburgas/quiz-game-with-an-external-API/issues"
+  },
+  "homepage": "https://github.com/brandenburgas/quiz-game-with-an-external-API#readme",
+  "devDependencies": {
+    "parcel": "^2.8.2"
+  },
+  "dependencies": {
+    "core-js": "^3.27.1",
+    "regenerator-runtime": "^0.13.11"
+  }
+}
