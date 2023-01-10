@@ -41,9 +41,7 @@ class View {
       option.addEventListener(
         "click",
         function () {
-          console.log(this);
           if (index !== +this._index) {
-            console.log(this);
             this.checkAnswer(data, option.innerHTML);
             setTimeout(function () {
               handler();
