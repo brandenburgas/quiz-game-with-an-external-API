@@ -2,6 +2,7 @@ class View {
   _data;
   _index = 0;
   _score = 0;
+  _quizContainer = document.querySelector(".quiz_container");
   _parentElement = document.querySelector(".form_container");
 
   _numberOfQuestions = document.querySelector("#trivia_amount");
@@ -29,6 +30,8 @@ class View {
       function (e) {
         e.preventDefault();
         handler();
+        // document.querySelector(".form_container").remove();
+        document.querySelector(".welcome").remove();
       },
       { once: true }
     );
@@ -43,10 +46,7 @@ class View {
         function () {
           if (index !== +this._index) {
             this.checkAnswer(data, option.innerHTML);
-            setTimeout(function () {
-              handler();
-            }, 3000),
-              { once: true };
+            handler();
           } else {
             this.checkAnswer(data, option.innerHTML);
             setTimeout(this.renderFinalScreen.bind(this), 3000);
@@ -57,7 +57,7 @@ class View {
   }
 
   _clear() {
-    this._parentElement.innerHTML = "";
+    this._quizContainer.innerHTML = "";
   }
 
   renderQuestion(data) {
@@ -66,24 +66,26 @@ class View {
 
     this._clear();
     const markup = this._generateQuestion();
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
+    this._quizContainer.insertAdjacentHTML("afterbegin", markup);
   }
 
   renderFinalScreen() {
     this._clear();
     const markup = this._generateFinal();
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
+    this._quizContainer.insertAdjacentHTML("afterbegin", markup);
   }
 
   _generateQuestion() {
     return `
     <h2 class="form_header">${this._data.question}</h2>
+    <div class="question_block">
     ${this._data.shuffledAnswers
       .map(
         (_, i) =>
           `<p class="trivia_option">${this._data.shuffledAnswers[i]}</p>`
       )
       .join("")}
+      </div>
     <p class="score">Your current score: ${this._score}</p>
     `;
   }
@@ -109,8 +111,27 @@ class View {
       answerCorrect = true;
       this._score++;
     } else answerCorrect = false;
-    const html = this._generateAnswer(answerCorrect);
-    this._parentElement.insertAdjacentHTML("beforeend", html);
+    const html = this._renderModal(answerCorrect);
+    let body = document.querySelector("body");
+    body.insertAdjacentHTML("beforeend", html);
+    this._toggleModal();
+  }
+
+  _renderModal(data) {
+    return `
+    <div id="modal" class="modal">
+      <div class="modal-content">
+      ${this._generateAnswer(data)}
+      </div>
+    </div>`;
+  }
+
+  _toggleModal() {
+    const modal = document.querySelector(".modal");
+    modal.addEventListener("click", () => {
+      modal.style.display = "hidden";
+      modal.remove();
+    });
   }
 }
 

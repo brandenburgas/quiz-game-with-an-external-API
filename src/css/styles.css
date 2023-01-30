@@ -54,23 +54,29 @@ h6 {
 body {
   font-family: "Press Start 2P", cursive;
   background-image: url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  background-size: 150%;
+  /* background-position: center; */
+  background-size: 200%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-h1 {
-  display: block;
+.welcome {
   color: #e6c229;
+  text-align: center;
 }
 
 .quiz_container {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  min-height: 400px;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  min-height: 500px;
+
+  box-shadow: 0px 1px 28px 19px rgba(164, 9, 151, 0.75);
+
+  padding: 40px;
   background-image: linear-gradient(
     45deg,
     hsl(240deg 100% 20%) 0%,
@@ -84,12 +90,6 @@ h1 {
     hsl(45deg 100% 50%) 89%,
     hsl(55deg 100% 50%) 100%
   );
-  display: flex;
-  justify-content: center;
-}
-
-.form_container {
-  width: 1000px;
 }
 
 .form-control {
@@ -98,7 +98,13 @@ h1 {
 }
 
 input {
+  margin: 5px 0px;
   text-align: center;
+}
+
+select {
+  margin: 5px 0px;
+  max-width: 300px;
 }
 
 option {
@@ -110,13 +116,15 @@ option {
 }
 
 .form_header {
-  min-height: 130px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
 .trivia_option {
   margin: 5px 5px;
+  padding: 0px 15px;
   text-align: center;
+  min-width: 400px;
   border: 2px solid black;
 }
 
@@ -126,7 +134,41 @@ option {
 }
 
 .btn_submit {
-  position: absolute;
-  bottom: 20px;
+  margin-top: 20px;
   background: #7209b7;
+}
+
+.score {
+  text-align: right;
+}
+
+.trivia_end {
+  align-self: center;
+  color: black;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  min-height: 600px;
+  position: fixed;
+  z-index: 1;
+  /* background-color: #e6c329; */
+  background-image: linear-gradient(
+    45deg,
+    hsl(240deg 100% 20%) 0%,
+    hsl(289deg 100% 21%) 11%,
+    hsl(315deg 100% 27%) 22%,
+    hsl(329deg 100% 36%) 33%,
+    hsl(337deg 100% 43%) 44%,
+    hsl(357deg 91% 59%) 56%,
+    hsl(17deg 100% 59%) 67%,
+    hsl(34deg 100% 53%) 78%,
+    hsl(45deg 100% 50%) 89%,
+    hsl(55deg 100% 50%) 100%
+  );
+
+  box-shadow: 0px 1px 28px 19px rgba(164, 9, 151, 0.75);
 }
