@@ -49,7 +49,7 @@ class View {
             handler();
           } else {
             this.checkAnswer(data, option.innerHTML);
-            setTimeout(this.renderFinalScreen.bind(this), 3000);
+            this.renderFinalScreen();
           }
         }.bind(this)
       )
@@ -77,7 +77,7 @@ class View {
 
   _generateQuestion() {
     return `
-    <h2 class="form_header">${this._data.question}</h2>
+    <h2 class="trivia_question">${this._data.question}</h2>
     <div class="question_block">
     ${this._data.shuffledAnswers
       .map(
