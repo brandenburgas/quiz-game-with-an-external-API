@@ -100,6 +100,9 @@ class View {
   _generateFinal() {
     return `
     <h1 class="trivia_end">The End! </br>Your final score is ${this._score}/${this._index}</h1>
+    <form>
+    <button class="button_reload">Reload</button>
+    </form>
     `;
   }
 

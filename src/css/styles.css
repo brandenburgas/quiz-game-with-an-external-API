@@ -134,7 +134,7 @@ option {
   cursor: pointer;
 }
 
-.btn_submit {
+button {
   margin-top: 20px;
   background: #7209b7;
 }
@@ -146,6 +146,11 @@ option {
 .trivia_end {
   align-self: center;
   color: black;
+  margin-bottom: 10px;
+}
+
+.button_reload {
+  font-size: 1.5rem;
 }
 
 .modal {
